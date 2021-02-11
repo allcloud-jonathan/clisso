@@ -33,12 +33,12 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
       - uses: actions/checkout@v2
-      - run: go test -v -coverprofile=profile.cov ./...
+      - run: go test -v -coverprofile=profile ./...
 
       - name: Send coverage
         uses: shogo82148/actions-goveralls@v1
         with:
-          path-to-profile: profile.cov
+          path-to-profile: profile
           flag-name: Go-${{ matrix.go }}
           parallel: true
   # notifies that all test jobs are finished.
